@@ -1,0 +1,26 @@
+name: Java Calculator AutoGrading
+
+on: [push]
+
+jobs:
+  autograding:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up JDK 11
+      uses: actions/setup-java@v1
+      with:
+        java-version: '11'
+    
+    - name: Download JUnit
+      run: |
+        mkdir -p lib
+        wget https://repo1.maven.org/maven2/org/junit/platform/junit-platform-console-standalone/1.7.0/junit-platform-console-standalone-1.7.0.jar -O lib/junit.jar
+    
+    - name: Compile code
+      run: javac -cp lib/junit.jar *.java
+    
+    - name: Run tests
+      run: java -jar lib/junit.jar --class-path . --scan-class-path
