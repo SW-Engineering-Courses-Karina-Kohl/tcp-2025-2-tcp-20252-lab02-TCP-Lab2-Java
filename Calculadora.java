@@ -4,7 +4,7 @@ public class Calculadora {
     private ArrayList<String> historico;
     private int ultimoResultado;
     
-    public Calculadora2() {
+    public Calculadora() {
         historico = new ArrayList<String>();
     }
     
