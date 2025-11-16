@@ -37,17 +37,17 @@ public class Calculadora {
     //     return resultado;
     // }
 
-    public double dividir(int a, int b) throws ArithmeticException{
-        try {
-            double resultado = (double)a / b;
-            historico.add(a + " / " + b + " = " + resultado);
-            ultimoResultado = (int)Math.round(resultado);
-            return resultado;
-        } catch (ArithmeticException e) {
-            System.err.println("Divisão por zero detectada e tratada");
-            historico.add(a + " / " + b + " = (divisão por zero tratada)");
-            
+    public double dividir(int a, int b) throws ArithmeticException {
+        if (b == 0) {
+            System.err.println("Divisão por zero detectada");
+            historico.add(a + " / " + b + " = (divisão por zero)");
+            throw new ArithmeticException("Divisão por zero não é permitida");
         }
+    
+        double resultado = (double) a / b; // aqui já é seguro, b != 0
+        historico.add(a + " / " + b + " = " + resultado);
+        ultimoResultado = (int) Math.round(resultado);
+        return resultado;
     }
 
     // public double dividir(int a, int b) {
