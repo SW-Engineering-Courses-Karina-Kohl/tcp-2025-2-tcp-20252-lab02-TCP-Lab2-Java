@@ -46,7 +46,7 @@ public class Calculadora {
         } catch (ArithmeticException e) {
             System.err.println("Divisão por zero detectada e tratada");
             historico.add(a + " / " + b + " = (divisão por zero tratada)");
-            return Double.POSITIVE_INFINITY; // Ou outro valor de sua escolha
+            
         }
     }
 
