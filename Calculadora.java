@@ -37,7 +37,7 @@ public class Calculadora {
     //     return resultado;
     // }
 
-    public double dividir(int a, int b) {
+    public double dividir(int a, int b) throws ArithmeticException{
         try {
             double resultado = (double)a / b;
             historico.add(a + " / " + b + " = " + resultado);
