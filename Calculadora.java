@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+//aaaa
 public class Calculadora {
     private ArrayList<String> historico;
     private int ultimoResultado;
